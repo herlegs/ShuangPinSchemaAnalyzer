@@ -1,0 +1,37 @@
+{
+	"consonants":{
+		"ch": "i",
+		"sh": "u",
+		"zh": "v"
+	},
+	"vowels":{
+		"iu":"q",
+		"ei":"w",
+		"uan":"r",
+		"ue":"t",
+		"ve":"t",
+		"un":"y",
+		"uo":"o",
+		"ie":"p",
+		"ong":"s",
+		"iong":"s",
+		"ai":"d",
+		"en":"f",
+		"eng":"g",
+		"ang":"h",
+		"an":"j",
+		"uai":"k",
+		"ing":"k",
+		"uang":"l",
+		"iang":"l",
+		"ou":"z",
+		"ua":"x",
+		"ia":"x",
+		"ao":"c",
+		"ui":"v",
+		"v":"v",
+		"in":"b",
+		"iao":"n",
+		"ian":"m",
+	}
+}
