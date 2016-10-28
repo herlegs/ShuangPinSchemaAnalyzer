@@ -7,7 +7,7 @@ class InputSchema(metaclass=ABCMeta):
 	__mapping = {"consonants":{}, "vowels":{}}
 
 	@abstractmethod
-	def __loadSchema(self, path=None):
+	def _load_schema(self, path):
 		#to be overriden
 		return
 
@@ -19,7 +19,7 @@ class InputSchema(metaclass=ABCMeta):
 				self.__mapping["consonants"][c] = c
 
 	def __init__(self):
-		self.__loadSingleChars(path);
+		self.__loadSingleChars();
 		
 
 	def str(self):
