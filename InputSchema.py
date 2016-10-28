@@ -1,12 +1,14 @@
 import string
 import json
-class InputSchema:
+from abc import ABCMeta, abstractmethod
+class InputSchema(metaclass=ABCMeta):
+	# __metaclass__ = ABCMeta
 	__singleVowels = {"a", "e", "i", "o", "u"}
 	__mapping = {"consonants":{}, "vowels":{}}
 
+	@abstractmethod
 	def __loadSchema(self, path=None):
 		#to be overriden
-		file = reafd
 		return
 
 	def __loadSingleChars(self):
@@ -23,4 +25,4 @@ class InputSchema:
 	def str(self):
 		print(json.dumps(self.__mapping, indent=4))
 
-test = InputSchema()
+# test = InputSchema()
