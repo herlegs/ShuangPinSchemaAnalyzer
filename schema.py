@@ -22,7 +22,31 @@ class InputSchema(metaclass=ABCMeta):
 		self.__load_single_chars();
 		
 	def get_key_presses(self, pinyin):
-		
+		keys = []
+		info = self.get_word_info(pinyin)
+		if info["is_vowel"]:
+			for char in pinyin:
+				keys.append(char)
+		else:
+			keys.append(self._mapping["consonants"][info["consonant"]])
+			vowel_index = len(info["consonant"])
+			end_vowel = pinyin[vowel_index:]
+			if end_vowel in self._mapping["vowels"]:
+				keys.append(self._mapping["vowels"][end_vowel])
+		return keys
+				
+	def get_word_info(self, pinyin):
+		info = {"is_vowel": True, "consonant": ""}
+		if pinyin and len(pinyin) > 1:
+			matched_consonants = []
+			for consonant in self._mapping["consonants"]:
+				if pinyin.startswith(consonant):
+					matched_consonants.append(consonant)
+			if matched_consonants:
+				info["is_vowel"] = False
+				info["consonant"] = max(matched_consonants, key=len)
+		return info
+					
 		
 	def print_map(self, map):
 		print(json.dumps(map, indent=4))
