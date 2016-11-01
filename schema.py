@@ -4,25 +4,30 @@ from abc import ABCMeta, abstractmethod
 class InputSchema(metaclass=ABCMeta):
 	# __metaclass__ = ABCMeta
 	__singleVowels = {"a", "e", "i", "o", "u"}
-	__mapping = {"consonants":{}, "vowels":{}}
+	_mapping = {"consonants":{}, "vowels":{}}
 
 	@abstractmethod
 	def _load_schema(self, path):
 		#to be overriden
 		return
 
-	def __loadSingleChars(self):
+	def __load_single_chars(self):
 		for c in string.ascii_lowercase:
 			if c in self.__singleVowels:
-				self.__mapping["vowels"][c] = c
+				self._mapping["vowels"][c] = c
 			else:
-				self.__mapping["consonants"][c] = c
+				self._mapping["consonants"][c] = c
 
 	def __init__(self):
-		self.__loadSingleChars();
+		self.__load_single_chars();
 		
+	def get_key_presses(self, pinyin):
+		
+		
+	def print_map(self, map):
+		print(json.dumps(map, indent=4))
 
 	def str(self):
-		print(json.dumps(self.__mapping, indent=4))
+		self.print_map(self._mapping)
 
 # test = InputSchema()
