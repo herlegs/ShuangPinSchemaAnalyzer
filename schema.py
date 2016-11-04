@@ -1,13 +1,13 @@
 import string
 import json
 from abc import ABCMeta, abstractmethod
-class InputSchema(metaclass=ABCMeta):
-	# __metaclass__ = ABCMeta
+class InputSchema():
+	__metaclass__ = ABCMeta
 	__singleVowels = {"a", "e", "i", "o", "u"}
 	_mapping = {"consonants":{}, "vowels":{}}
 
 	@abstractmethod
-	def _load_schema(self, path):
+	def _load_schema(self, setting):
 		#to be overriden
 		return
 
